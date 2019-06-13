@@ -1,0 +1,9 @@
+www/html/laravel/basic/vendor
+www/html/laravel/oauth_laravel/vendor
+www/html/laravel/adfs/vendor
+www/html/laravel/saml/idp/vendor
+www/html/laravel/saml/sp/vendor
+www/html/laravel/oauth_laravel/node_modules
+.vagrant
+.DS_Store
+References

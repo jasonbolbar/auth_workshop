@@ -1,0 +1,27 @@
+<?xml version="1.0"?>
+<md:EntityDescriptor xmlns:md="urn:oasis:names:tc:SAML:2.0:metadata" validUntil="2019-06-02T03:21:02Z" cacheDuration="PT1559877662S" entityID="idp.saml.authworshop.com">
+    <md:IDPSSODescriptor WantAuthnRequestsSigned="false" protocolSupportEnumeration="urn:oasis:names:tc:SAML:2.0:protocol">
+        <md:KeyDescriptor use="signing">
+            <ds:KeyInfo xmlns:ds="http://www.w3.org/2000/09/xmldsig#">
+                <ds:X509Data>
+                    <ds:X509Certificate>MIIDmTCCAoCgAwIBAgIBADANBgkqhkiG9w0BAQsFADBmMQswCQYDVQQGEwJ1czEQMA4GA1UECAwHRmxvcmlkYTEgMB4GA1UECgwXQXV0aGVudGljYXRpb24gV29ya3Nob3AxIzAhBgNVBAMMGmF1dGhlbnRpY2F0aW9ud29ya3Nob3AuY29tMB4XDTE5MDUzMTAzMTkzOFoXDTIwMDUzMDAzMTkzOFowZjELMAkGA1UEBhMCdXMxEDAOBgNVBAgMB0Zsb3JpZGExIDAeBgNVBAoMF0F1dGhlbnRpY2F0aW9uIFdvcmtzaG9wMSMwIQYDVQQDDBphdXRoZW50aWNhdGlvbndvcmtzaG9wLmNvbTCCASMwDQYJKoZIhvcNAQEBBQADggEQADCCAQsCggECAJ342xkUSuvChKTGRBp0veh40vcUb+aua9PZCmcioSkoez5iCPmZCKowXvydCguxxxz+LCqWWvwGGqrLISV1oU1Z0Jczn8LYaoseGl+Ps/f1enAJAuJl8HA74Gk9+NnPOnir+4mn1sFmTxa8InmY6DKCETQop4KqaOJ0yv7nYrXioUITrfule5BIrnKlDVkQwoxzTUlWW/T5YNw9KpI0lWyktSgY/eGnEU7v8AjT2NwrS2CUYOqWTN0+fgGSw+IH9bsmDqWup3qAulWA2Nlyo39YBx2jQZZejkWDdEiivc4FwrAKWFbY/5Se5Jwp9z5IVc5ET6o99gm2rMmG2X1zhcT9AgMBAAGjUDBOMB0GA1UdDgQWBBSz7GieFLA6xdYgTb1qQ2wYiDxLFDAfBgNVHSMEGDAWgBSz7GieFLA6xdYgTb1qQ2wYiDxLFDAMBgNVHRMEBTADAQH/MA0GCSqGSIb3DQEBCwUAA4IBAgCagfuB81ODUtGujTBFEeHGKH//qTyCkNX+0UF+ZaeybbBnfpFG1oQCtsD2jI5QWeWCT6Tbdft10VqzvuKuFblbPYez9D1Whs9TxOGr1Cx6YVonT8LxX27WJbPg4NCLfyMPPcpagJThBDR4HE2B/Khq767cIEgXUQBBugYMh9hV5yPrwBgqT+4IcMgS8Tewa6T2YbdkupmU6UM6vQaZq3e7SdJhIeE3U8PCkxjlFXtajxiTZJsgl4XTUwRJgF2xU/kdR7tyF57e3s/5r+Ays9w4+C7LzQIB+0387Q/HKbuX/0RTeYmWT33/ZAbnT+BASHdtYBbZi9QWSLbzH2JGXVIRiw==</ds:X509Certificate>
+                </ds:X509Data>
+            </ds:KeyInfo>
+        </md:KeyDescriptor>
+        <md:KeyDescriptor use="encryption">
+            <ds:KeyInfo xmlns:ds="http://www.w3.org/2000/09/xmldsig#">
+                <ds:X509Data>
+                    <ds:X509Certificate>MIIDmTCCAoCgAwIBAgIBADANBgkqhkiG9w0BAQsFADBmMQswCQYDVQQGEwJ1czEQMA4GA1UECAwHRmxvcmlkYTEgMB4GA1UECgwXQXV0aGVudGljYXRpb24gV29ya3Nob3AxIzAhBgNVBAMMGmF1dGhlbnRpY2F0aW9ud29ya3Nob3AuY29tMB4XDTE5MDUzMTAzMTkzOFoXDTIwMDUzMDAzMTkzOFowZjELMAkGA1UEBhMCdXMxEDAOBgNVBAgMB0Zsb3JpZGExIDAeBgNVBAoMF0F1dGhlbnRpY2F0aW9uIFdvcmtzaG9wMSMwIQYDVQQDDBphdXRoZW50aWNhdGlvbndvcmtzaG9wLmNvbTCCASMwDQYJKoZIhvcNAQEBBQADggEQADCCAQsCggECAJ342xkUSuvChKTGRBp0veh40vcUb+aua9PZCmcioSkoez5iCPmZCKowXvydCguxxxz+LCqWWvwGGqrLISV1oU1Z0Jczn8LYaoseGl+Ps/f1enAJAuJl8HA74Gk9+NnPOnir+4mn1sFmTxa8InmY6DKCETQop4KqaOJ0yv7nYrXioUITrfule5BIrnKlDVkQwoxzTUlWW/T5YNw9KpI0lWyktSgY/eGnEU7v8AjT2NwrS2CUYOqWTN0+fgGSw+IH9bsmDqWup3qAulWA2Nlyo39YBx2jQZZejkWDdEiivc4FwrAKWFbY/5Se5Jwp9z5IVc5ET6o99gm2rMmG2X1zhcT9AgMBAAGjUDBOMB0GA1UdDgQWBBSz7GieFLA6xdYgTb1qQ2wYiDxLFDAfBgNVHSMEGDAWgBSz7GieFLA6xdYgTb1qQ2wYiDxLFDAMBgNVHRMEBTADAQH/MA0GCSqGSIb3DQEBCwUAA4IBAgCagfuB81ODUtGujTBFEeHGKH//qTyCkNX+0UF+ZaeybbBnfpFG1oQCtsD2jI5QWeWCT6Tbdft10VqzvuKuFblbPYez9D1Whs9TxOGr1Cx6YVonT8LxX27WJbPg4NCLfyMPPcpagJThBDR4HE2B/Khq767cIEgXUQBBugYMh9hV5yPrwBgqT+4IcMgS8Tewa6T2YbdkupmU6UM6vQaZq3e7SdJhIeE3U8PCkxjlFXtajxiTZJsgl4XTUwRJgF2xU/kdR7tyF57e3s/5r+Ays9w4+C7LzQIB+0387Q/HKbuX/0RTeYmWT33/ZAbnT+BASHdtYBbZi9QWSLbzH2JGXVIRiw==</ds:X509Certificate>
+                </ds:X509Data>
+            </ds:KeyInfo>
+        </md:KeyDescriptor>
+        <md:SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://idp.saml.authworshop.com/logout/saml"/>
+        <md:NameIDFormat>urn:oasis:names:tc:SAML:1.1:nameid-format:unspecified</md:NameIDFormat>
+        <md:SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://idp.saml.authworshop.com/login/saml"/>
+    </md:IDPSSODescriptor>
+    <md:Organization>
+        <md:OrganizationName xml:lang="en-US">Idp Auth Workshop</md:OrganizationName>
+        <md:OrganizationDisplayName xml:lang="en-US">Idp Auth Workshop</md:OrganizationDisplayName>
+        <md:OrganizationURL xml:lang="en-US">https://idp.saml.authworshop.com</md:OrganizationURL>
+    </md:Organization>
+</md:EntityDescriptor>

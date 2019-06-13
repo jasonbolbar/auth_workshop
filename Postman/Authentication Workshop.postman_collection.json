@@ -1,0 +1,396 @@
+{
+	"info": {
+		"_postman_id": "4f15ef52-2a5d-471d-a6f4-64a2eadb9dec",
+		"name": "Authentication Workshop",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Password Grant",
+			"item": [
+				{
+					"name": "Unauthenticated Request",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "X-Requested-With",
+								"value": "ajax",
+								"type": "text"
+							},
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "https://oauth.laravel.authworkshop.com/api/products",
+							"protocol": "https",
+							"host": [
+								"oauth",
+								"laravel",
+								"authworkshop",
+								"com"
+							],
+							"path": [
+								"api",
+								"products"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get an Access token",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "e4b34dd6-ea71-4856-b16e-3af48cca6afb",
+								"exec": [
+									"try {",
+									"try { var data = JSON.parse(responseBody); } catch (e) { tests[\"Json parse error\"] = false; }",
+									"tests[\"Status code is 200\"] = responseCode.code === 200;",
+									"postman.setEnvironmentVariable(\"access_token\", data.access_token);",
+									"",
+									"",
+									"} catch (e) { tests[\"Test Script error \"+e] = false; }",
+									"",
+									"if (_(tests).reject(_.identity).size()) { tests[`Response Body: ${responseBody}`] = true; }"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "oauth2",
+							"oauth2": [
+								{
+									"key": "addTokenTo",
+									"value": "header",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "X-Requested-With",
+								"value": "ajax",
+								"type": "text"
+							},
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"grant_type\":\"password\",\n\t\"username\":\"postman@user.com\",\n\t\"password\":\"postman1\",\n\t\"client_id\":\"2\",\n\t\"client_secret\":\"0ACAw6LxIOFfRPwwRDcTzrA3h7fhV11jxKm1pulx\",\n\t\"scope\":\"*\"\n}"
+						},
+						"url": {
+							"raw": "https://oauth.laravel.authworkshop.com/oauth/token",
+							"protocol": "https",
+							"host": [
+								"oauth",
+								"laravel",
+								"authworkshop",
+								"com"
+							],
+							"path": [
+								"oauth",
+								"token"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Authenticated Request",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "X-Requested-With",
+								"type": "text",
+								"value": "ajax"
+							},
+							{
+								"key": "Accept",
+								"type": "text",
+								"value": "application/json"
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer {{access_token}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "https://oauth.laravel.authworkshop.com/api/products",
+							"protocol": "https",
+							"host": [
+								"oauth",
+								"laravel",
+								"authworkshop",
+								"com"
+							],
+							"path": [
+								"api",
+								"products"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create Product",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "X-Requested-With",
+								"type": "text",
+								"value": "ajax"
+							},
+							{
+								"key": "Accept",
+								"type": "text",
+								"value": "application/json"
+							},
+							{
+								"key": "Authorization",
+								"type": "text",
+								"value": "Bearer {{access_token}}"
+							},
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"name\": \"Product {{$timestamp}}\",\n\t\"description\": \"Description for product {{$timestamp}}\",\n\t\"quantity\": 1,\n\t\"price\": 0.50\n}"
+						},
+						"url": {
+							"raw": "https://oauth.laravel.authworkshop.com/api/products",
+							"protocol": "https",
+							"host": [
+								"oauth",
+								"laravel",
+								"authworkshop",
+								"com"
+							],
+							"path": [
+								"api",
+								"products"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Client Credentials",
+			"item": [
+				{
+					"name": "Unauthenticated Request",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "X-Requested-With",
+								"value": "ajax",
+								"type": "text"
+							},
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "https://oauth.laravel.authworkshop.com/api/locations",
+							"protocol": "https",
+							"host": [
+								"oauth",
+								"laravel",
+								"authworkshop",
+								"com"
+							],
+							"path": [
+								"api",
+								"locations"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get an Access token",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "e4b34dd6-ea71-4856-b16e-3af48cca6afb",
+								"exec": [
+									"try {",
+									"try { var data = JSON.parse(responseBody); } catch (e) { tests[\"Json parse error\"] = false; }",
+									"tests[\"Status code is 200\"] = responseCode.code === 200;",
+									"postman.setEnvironmentVariable(\"client_access_token\", data.access_token);",
+									"",
+									"",
+									"} catch (e) { tests[\"Test Script error \"+e] = false; }",
+									"",
+									"if (_(tests).reject(_.identity).size()) { tests[`Response Body: ${responseBody}`] = true; }"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "X-Requested-With",
+								"type": "text",
+								"value": "ajax"
+							},
+							{
+								"key": "Accept",
+								"type": "text",
+								"value": "application/json"
+							},
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"grant_type\":\"client_credentials\",\n\t\"client_id\":\"4\",\n\t\"client_secret\":\"S03uLrM6ItmGwmjipCwTVGoNYB3nHbMHRk2NIufD\",\n\t\"scope\":\"*\"\n}"
+						},
+						"url": {
+							"raw": "https://oauth.laravel.authworkshop.com/oauth/token",
+							"protocol": "https",
+							"host": [
+								"oauth",
+								"laravel",
+								"authworkshop",
+								"com"
+							],
+							"path": [
+								"oauth",
+								"token"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Authenticated Request",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "X-Requested-With",
+								"type": "text",
+								"value": "ajax"
+							},
+							{
+								"key": "Accept",
+								"type": "text",
+								"value": "application/json"
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer {{client_access_token}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "https://oauth.laravel.authworkshop.com/api/locations",
+							"protocol": "https",
+							"host": [
+								"oauth",
+								"laravel",
+								"authworkshop",
+								"com"
+							],
+							"path": [
+								"api",
+								"locations"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create Location",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "X-Requested-With",
+								"type": "text",
+								"value": "ajax"
+							},
+							{
+								"key": "Accept",
+								"type": "text",
+								"value": "application/json"
+							},
+							{
+								"key": "Authorization",
+								"type": "text",
+								"value": "Bearer {{client_access_token}}"
+							},
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"name\": \"Location {{$timestamp}}\",\n\t\"description\": \"Description for location {{$timestamp}}\",\n\t\"country\": \"United States\",\n\t\"state\": \"Florida\",\n\t\"city\": \"Miami\"\n}"
+						},
+						"url": {
+							"raw": "https://oauth.laravel.authworkshop.com/api/locations",
+							"protocol": "https",
+							"host": [
+								"oauth",
+								"laravel",
+								"authworkshop",
+								"com"
+							],
+							"path": [
+								"api",
+								"locations"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
